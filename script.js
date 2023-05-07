@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let isMouseDown = false;
     let coloredSquares = [];
 
-
-
-
     const colorPicker = document.getElementById("color-picker");
     const warmButton = document.querySelector(".warm");
     const coolButton = document.querySelector(".cold");
@@ -15,17 +12,44 @@ document.addEventListener("DOMContentLoaded", function() {
     const b_two = document.querySelector(".grid-20");
     const b_three = document.querySelector(".grid-30");
 
-    const warmColors = [
-        "#FF5733"
 
+
+
+    const warmColors = [
+        "#FF5733",
+        "#FFA07A",
+        "#FF7F50",
+        "#FF6347",
+        "#FF4500",
+        "#FF8C00",
+        "#FF7256",
+        "#FFA500",
+        "#FFA07A",
+        "#FF8C00"
     ];
     const coolColors = [
-        "#85C1E9"
-
+        "#007F7F",
+        "#008080",
+        "#008B8B",
+        "#00BFFF",
+        "#00CED1",
+        "#00FA9A",
+        "#00FF7F",
+        "#00FF00",
+        "#7FFFD4",
+        "#66CDAA"
     ];
     const noirColors = [
-        "#424949"
-
+        "#222222",
+        "#333333",
+        "#444444",
+        "#555555",
+        "#666666",
+        "#777777",
+        "#888888",
+        "#999999",
+        "#aaaaaa",
+        "#bbbbbb"
     ];
 
 
@@ -106,3 +130,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });
+
+// //figure out
+// const generateRandomColor = (string) => {
+//     if (string === 'warm') {
+//         // Generate a warm color
+//         const hue = Math.floor(Math.random() * 41) + 10; // 10-50 (red-orange to yellow)
+//         const saturation = Math.floor(Math.random() * 51) + 50; // 50-100 (more vivid)
+//         const lightness = Math.floor(Math.random() * 41) + 40; // 40-80 (light to dark)
+//         return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+//     } else if (string === 'cool') {
+//         // Generate a cool color
+//         const hue = 205; // Blue hue
+//         const saturation = Math.floor(Math.random() * 31) + 70; // 70-100 (less vivid)
+//         const lightness = Math.floor(Math.random() * 41) + 40; // 40-80 (light to dark)
+//         return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+//     } else if (string === 'noir') {
+//         // Generate a random gray color
+//         const shade = Math.floor(Math.random() * 81) + 10; // 10-90 (light to dark)
+//         return `rgb(${shade}, ${shade}, ${shade})`;
+//     } else {
+//         // Default to black
+//         return '#000000';
+//     }
+// }
