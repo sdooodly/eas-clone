@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const warmButton = document.querySelector(".warm");
     const coolButton = document.querySelector(".cold");
     const noirButton = document.querySelector(".noir");
-    const b_one = document.querySelector(".grid-10 diamond");
+    const b_one = document.querySelector(".grid-10");
     const b_two = document.querySelector(".grid-20");
     const b_three = document.querySelector(".grid-30");
 
@@ -55,30 +55,29 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedColor = colorPicker.value;
         document.body.style.backgroundColor = selectedColor;
     });
+    
 
     b_one.addEventListener("click", function () {
         console.log("here")
-        const selectedValue = 10 * 10;
-        const squareRoot = 10;
-        const squaresPerRow = 10;
-        const squaresPerColumn = 10;
         // Clear the container before adding new squares
         container.innerHTML = "";
         coloredSquares = [];
 
         // Calculate the size of each square
-        const squareWidth = 500 / squaresPerRow;
-        const squareHeight = 500 / squaresPerColumn;
+        const squareWidth = 500 / 10;
+        const squareHeight = 500 / 10;
 
         // Add new squares to the container
-        for (let i = 0; i < selectedValue; i++) {
+        for (let i = 0; i < 100; i++) {
             const square = document.createElement("div");
             square.classList.add("square");
             square.style.width = `${squareWidth}px`;
             square.style.height = `${squareHeight}px`;
             container.appendChild(square);
 
-            // Add event listeners to each square
+            
+        }
+
             square.addEventListener("mousedown", () => {
                 square.style.backgroundColor = colorPicker.value;
 
@@ -102,10 +101,49 @@ document.addEventListener("DOMContentLoaded", function () {
             square.addEventListener("mouseleave", () => {
                 isMouseDown = false;
             });
-        }
 
     })
 
+    b_two.addEventListener("click", function () {
+        console.log("here")
+        // Clear the container before adding new squares
+        container.innerHTML = "";
+        coloredSquares = [];
+
+        // Calculate the size of each square
+        const squareWidth = 500 / 20;
+        const squareHeight = 500 / 20;
+
+        // Add new squares to the container
+        for (let i = 0; i < 400; i++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            square.style.width = `${squareWidth}px`;
+            square.style.height = `${squareHeight}px`;
+            container.appendChild(square);
+        }
+    })
+    b_three.addEventListener("click", function () {
+        console.log("here")
+        // Clear the container before adding new squares
+        container.innerHTML = "";
+        coloredSquares = [];
+
+        // Calculate the size of each square
+        const squareWidth = 500 / 30;
+        const squareHeight = 500 / 30;
+
+        // Add new squares to the container
+        for (let i = 0; i < 900; i++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            square.style.width = `${squareWidth}px`;
+            square.style.height = `${squareHeight}px`;
+            container.appendChild(square);
+        }
+    })
     
+
+   
 
 });
