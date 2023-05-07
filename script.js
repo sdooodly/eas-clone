@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     //const slider = document.getElementById("slider");
     const container = document.querySelector(".container");
     let isMouseDown = false;
@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
     const coolColors = [
         "#85C1E9"
-       
+
     ];
     const noirColors = [
         "#424949"
-        
+
     ];
 
 
@@ -33,117 +33,76 @@ document.addEventListener("DOMContentLoaded", function () {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    warmButton.addEventListener("click", function () {
+    warmButton.addEventListener("click", function() {
         const selectedColor = getRandomColor(warmColors);
         colorPicker.value = selectedColor;
         document.body.style.backgroundColor = selectedColor;
     });
 
-    coolButton.addEventListener("click", function () {
+    coolButton.addEventListener("click", function() {
         const selectedColor = getRandomColor(coolColors);
         colorPicker.value = selectedColor;
         document.body.style.backgroundColor = selectedColor;
     });
 
-    noirButton.addEventListener("click", function () {
+    noirButton.addEventListener("click", function() {
         const selectedColor = getRandomColor(noirColors);
         colorPicker.value = selectedColor;
         document.body.style.backgroundColor = selectedColor;
     });
 
-    colorPicker.addEventListener("change", function () {
+    colorPicker.addEventListener("change", function() {
         const selectedColor = colorPicker.value;
         document.body.style.backgroundColor = selectedColor;
     });
-    
 
-    b_one.addEventListener("click", function () {
-        console.log("here")
-        // Clear the container before adding new squares
+
+    b_one.addEventListener("click", function() {
         container.innerHTML = "";
         coloredSquares = [];
+        addSquare(10);
+    })
 
-        // Calculate the size of each square
-        const squareWidth = 500 / 10;
-        const squareHeight = 500 / 10;
+    b_two.addEventListener("click", function() {
+        container.innerHTML = "";
+        coloredSquares = [];
+        addSquare(20);
+    })
+    b_three.addEventListener("click", function() {
+        container.innerHTML = "";
+        coloredSquares = [];
+        addSquare(30);
+    })
 
-        // Add new squares to the container
-        for (let i = 0; i < 100; i++) {
+    const addSquare = (input) => {
+        for (let i = 0; i < (input * input); i++) {
+            const squareWidth = 500 / input;
+            const squareHeight = 500 / input;
             const square = document.createElement("div");
             square.classList.add("square");
             square.style.width = `${squareWidth}px`;
             square.style.height = `${squareHeight}px`;
             container.appendChild(square);
 
-            
-        }
-
-            square.addEventListener("mousedown", () => {
-                square.style.backgroundColor = colorPicker.value;
-
-                isMouseDown = true;
-                coloredSquares.push(square);
-            });
-
-            square.addEventListener("mousemove", () => {
-                if (isMouseDown && !coloredSquares.includes(square)) {
-
+            square.addEventListener("mouseover", function() {
+                if (isMouseDown) {
                     square.style.backgroundColor = colorPicker.value;
-
                     coloredSquares.push(square);
                 }
             });
 
-            square.addEventListener("mouseup", () => {
-                isMouseDown = false;
+            square.addEventListener("mousedown", function() {
+                isMouseDown = true;
+                square.style.backgroundColor = colorPicker.value;
+                coloredSquares.push(square);
             });
 
-            square.addEventListener("mouseleave", () => {
+            square.addEventListener("mouseup", function() {
                 isMouseDown = false;
             });
-
-    })
-
-    b_two.addEventListener("click", function () {
-        console.log("here")
-        // Clear the container before adding new squares
-        container.innerHTML = "";
-        coloredSquares = [];
-
-        // Calculate the size of each square
-        const squareWidth = 500 / 20;
-        const squareHeight = 500 / 20;
-
-        // Add new squares to the container
-        for (let i = 0; i < 400; i++) {
-            const square = document.createElement("div");
-            square.classList.add("square");
-            square.style.width = `${squareWidth}px`;
-            square.style.height = `${squareHeight}px`;
-            container.appendChild(square);
         }
-    })
-    b_three.addEventListener("click", function () {
-        console.log("here")
-        // Clear the container before adding new squares
-        container.innerHTML = "";
-        coloredSquares = [];
+    }
 
-        // Calculate the size of each square
-        const squareWidth = 500 / 30;
-        const squareHeight = 500 / 30;
 
-        // Add new squares to the container
-        for (let i = 0; i < 900; i++) {
-            const square = document.createElement("div");
-            square.classList.add("square");
-            square.style.width = `${squareWidth}px`;
-            square.style.height = `${squareHeight}px`;
-            container.appendChild(square);
-        }
-    })
-    
-
-   
 
 });
